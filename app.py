@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import os
+from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 
 app = Flask(__name__, static_url_path='/static')
