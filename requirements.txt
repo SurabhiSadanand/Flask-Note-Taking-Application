@@ -3,4 +3,6 @@ requests==2.26.0
 Werkzeug<2.1
 gunicorn==22.0.0
 azure-storage-blob==12.8.1
+azure-identity==1.7.0
+
 
