@@ -7,7 +7,7 @@ app = Flask(__name__, static_url_path='/static')
 
 notes = []
 
-# Get the connection string from environment variables
+# Get the connection string from environment variable
 connection_string = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 if not connection_string:
    print("Error:Connection string not found")
