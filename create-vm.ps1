@@ -4,7 +4,7 @@
 $null = Connect-AzAccount -Identity
 
 # Define variables for the resource group creation
-$resourceGroupName = "MyRG"
+$resourceGroupName = "MyRG12"
 $location = "EastUS"
 
 # Check if the resource group exists
