@@ -1,0 +1,35 @@
+- name: Log in to Azure
+  uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+- name: Azure PowerShell CI
+
+- on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up PowerShell
+      uses: actions/setup-powershell@v2
+      with:
+        pwsh-version: '7.x'  # Adjust based on the version of PowerShell you're using
+
+    - name: Install Azure PowerShell module
+      run: |
+        pwsh -Command "Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser"
+
+    - name: Run PowerShell Scripts
+      run: |
+        pwsh -File ./scripts/create-vm.ps1
