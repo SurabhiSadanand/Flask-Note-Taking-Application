@@ -1,6 +1,11 @@
-name: Azure PowerShell CI
+- name: Log in to Azure
+  uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-on:
+- name: Azure PowerShell CI
+
+- on:
   push:
     branches:
       - main
@@ -27,4 +32,4 @@ jobs:
 
     - name: Run PowerShell Scripts
       run: |
-        pwsh -File ./scripts/your-azure-script.ps1
+        pwsh -File ./scripts/create-vm.ps1
